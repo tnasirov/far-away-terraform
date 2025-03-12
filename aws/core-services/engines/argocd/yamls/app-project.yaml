@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: far-away-apps
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/tnasirov/far-away-gitops.git
+  destinations:
+    - name: in-cluster
+      server: https://kubernetes.default.svc
+      namespace: '*'

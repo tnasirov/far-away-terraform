@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-main-${namespace}
+  namespace: argocd
+spec:
+  project: far-away-apps
+  source:
+    repoURL: https://github.com/tnasirov/far-away-gitops.git
+    targetRevision: HEAD
+    path: argo-apps
+    helm:
+      valueFiles:
+      - values-${namespace}.yaml
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true

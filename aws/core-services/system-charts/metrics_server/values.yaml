@@ -1,0 +1,7 @@
+fullnameOverride: ${release_name}
+serviceAccount:
+  create: true
+  name: ${sa_name}
+tolerations: 
+  - key: CriticalAddonsOnly
+    operator: Exists

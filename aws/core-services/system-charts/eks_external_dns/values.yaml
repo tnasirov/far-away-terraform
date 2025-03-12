@@ -1,0 +1,14 @@
+fullnameOverride: ${release_name}
+serviceAccount:
+  create: true
+  name: ${sa_name}
+  annotations:
+    eks.amazonaws.com/role-arn: ${irsa_role}
+domainFilters: 
+  ${indent(2, yamlencode(domains))}
+txtOwnerId: external-dns-${cluster_name}
+txtPrefix: txt_
+policy: sync
+provider: aws
+aws:
+  region: ${region}
