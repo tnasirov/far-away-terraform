@@ -6,9 +6,9 @@ locals {
   
   argocd_values = templatefile(local.values_yaml_path, {
     hostname                   = var.argocd_hostname
-    gitops_repo_url            = var.gitops_repo_url
-    gitops_repo_password       = var.gitops_repo_password
-    gitops_repo_username       = var.gitops_repo_username
+    gitops_repo_url            = local.argocd_repo_credentials.gitops_repo_url
+    gitops_repo_password       = local.argocd_repo_credentials.gitops_repo_password
+    gitops_repo_username       = local.argocd_repo_credentials.gitops_repo_username
     sso_enabled                = var.sso_enabled
   })
 

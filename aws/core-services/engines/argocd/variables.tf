@@ -57,18 +57,3 @@ variable "main_apps" {
   description = "Main argocd app for Applications"
   default = []
 }
-
-variable "gitops_repo_url" {
-  description = "The URL of the GitOps repository"
-  type        = string
-}
-
-variable "gitops_repo_username" {
-  description = "The username for the GitOps repository"
-  type        = string
-}
-
-variable "gitops_repo_password" {
-  description = "The password for the GitOps repository"
-  type        = string
-}
